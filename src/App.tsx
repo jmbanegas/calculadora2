@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Display from './components/Display';
+import Screen from './components/screen';
 import Button from './components/Button';
 import './App.css'; // Añade tu CSS para el diseño
 
@@ -56,7 +56,7 @@ const App: React.FC = () => {
 
   return (
     <div className="calculator">
-      <Display value={input || result?.toString() || '0'} />
+      <Screen value={input || result?.toString() || '0'} />
       <div className="buttons">
         <Button text="7" handleClick={handleButtonClick} />
         <Button text="8" handleClick={handleButtonClick} />
@@ -74,7 +74,7 @@ const App: React.FC = () => {
         <Button text="-" handleClick={() => handleOperatorClick('-')} />
 
         <Button text="0" handleClick={handleButtonClick} />
-        <Button text="C" handleClick={clearInput} />
+        <Button text="Enter" handleClick={clearInput} />
         <Button text="=" handleClick={calculateResult} />
         <Button text="+" handleClick={() => handleOperatorClick('+')} />
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Screen from './components/screen';
+import Screen from './components/Screen';
 import Button from './components/Button';
 import './App.css'; // Añade tu CSS para el diseño
 

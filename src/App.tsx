@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Screen from './components/screen';
+import Screen from './components/Screen';
 import Button from './components/Button';
 import './App.css'; // Añade tu CSS para el diseño
 
@@ -74,7 +74,7 @@ const App: React.FC = () => {
         <Button text="-" handleClick={() => handleOperatorClick('-')} />
 
         <Button text="0" handleClick={handleButtonClick} />
-        <Button text="Enter" handleClick={clearInput} />
+        <Button text="C" handleClick={clearInput} />
         <Button text="=" handleClick={calculateResult} />
         <Button text="+" handleClick={() => handleOperatorClick('+')} />
 

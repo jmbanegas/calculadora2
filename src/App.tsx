@@ -77,6 +77,9 @@ const App: React.FC = () => {
         <Button text="Enter" handleClick={clearInput} />
         <Button text="=" handleClick={calculateResult} />
         <Button text="+" handleClick={() => handleOperatorClick('+')} />
+
+        
+        <Button text="." handleClick={handleButtonClick} />
       </div>
     </div>
   );

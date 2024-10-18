@@ -7,7 +7,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ text, handleClick }) => {
   return (
-    <button className="button" onClick={() => handleClick(text)}>
+    <button className="Button" onClick={() => handleClick(text)}>
       {text}
     </button>
   );

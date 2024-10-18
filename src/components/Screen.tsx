@@ -5,7 +5,7 @@ interface ScreenProps {
 }
 
 const Screen: React.FC<ScreenProps> = ({ value }) => {
-  return <div className="screen">{value}</div>;
+  return <div className="Screen">{value}</div>;
 };
 
 export default Screen;

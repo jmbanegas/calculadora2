@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Screen from './components/Screen';
 import Button from './components/Button';
-import './App.css'; // Añade tu CSS para el diseño
+import './App.css';
 
 const App: React.FC = () => {
-  const [input, setInput] = useState<string>(''); // Estado para la entrada
-  const [operator, setOperator] = useState<string | null>(null); // Operador actual
-  const [result, setResult] = useState<number | null>(null); // Resultado
+  const [input, setInput] = useState<string>(''); 
+  const [operator, setOperator] = useState<string | null>(null); 
+  const [result, setResult] = useState<number | null>(null);
+  const [lastInput, setLastInput] = useState<number | null>(null); // Último número ingresado para repetir la operación
 
   const handleButtonClick = (value: string): void => {
     setInput((prevInput) => prevInput + value);
@@ -17,14 +18,15 @@ const App: React.FC = () => {
       setResult(parseFloat(input));
       setInput('');
       setOperator(operator);
+      setLastInput(parseFloat(input)); // Guardar el último número ingresado
     }
   };
 
   const calculateResult = (): void => {
-    if (input && result !== null) {
-      const numInput = parseFloat(input);
-      let tempResult: number = result;
+    let tempResult: number = result ?? 0;
+    const numInput = input ? parseFloat(input) : lastInput; // Usar input o el último número si input está vacío
 
+    if (numInput !== null && operator) {
       switch (operator) {
         case '+':
           tempResult += numInput;
@@ -44,7 +46,7 @@ const App: React.FC = () => {
 
       setResult(tempResult);
       setInput('');
-      setOperator(null);
+      setLastInput(numInput); // Actualizar el último número utilizado
     }
   };
 
@@ -52,6 +54,7 @@ const App: React.FC = () => {
     setInput('');
     setResult(null);
     setOperator(null);
+    setLastInput(null);
   };
 
   return (
@@ -78,7 +81,6 @@ const App: React.FC = () => {
         <Button text="=" handleClick={calculateResult} />
         <Button text="+" handleClick={() => handleOperatorClick('+')} />
 
-        
         <Button text="." handleClick={handleButtonClick} />
       </div>
     </div>
